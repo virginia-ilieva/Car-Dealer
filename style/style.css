@@ -1,0 +1,40 @@
+﻿@import url("jquery-ui-1.8.6.custom.css");
+@import url("lightBox.css");
+@import url("validationEngine.jquery.css");
+
+/* General styling */
+body { background-color:#efefef; }
+.slider { background-image:url('../img/slider.jpg'); height:320px; width:1020px; }
+.logo { background-image:url('../img/css/bglogo.png'); height:72px; width:1020px; }
+.logo img {margin:20px;}
+.title { margin-bottom:40px; }
+.title span { font-family:Calibri; font-size:24px; margin-left:30px; }
+
+.label { display:inline-block; width:200px; vertical-align:top; margin-top:5px; }
+.textbox { width:200px; font-family:Calibri; }
+.dropdown { width:150px; font-family:Calibri; }
+
+.right { text-align:right; }
+.hidden { display:none; }
+.btn { background:transparent url('../img/css/grid.icons.png') no-repeat 0 0; padding-left:22px; border:0; height:16px; cursor:pointer; font-weight:bold; }
+
+/* Grid - manage objects */
+.managegrid { background-image:url('../img/css/bggg.png'); width:1020px; padding:5px 0 30px 0; }
+.grid { border:1px solid #d5d5d5; width:1000px; margin-left:auto; margin-right:auto; }
+.grid tr { background-color:#f5f5f5; }
+.grid tr td { border-top:1px solid #d5d5d5; padding:3px 5px; font-family:Calibri;}
+.grid img { width:160px; height:80px; }
+.gridButton { background:url('../img/css/grid.icons.png') no-repeat 0 0; 
+width:16px; height:16px; border:0; cursor:pointer; }
+    .edit { background-position: 0 0; }
+    .edit:hover { background-position: 0 -16px; }
+    .delete { background-position:  0 -32px; }
+    .delete:hover { background-position:  0 -48px; }
+    .save { background-position: -16px 0; }
+    .save:hover { background-position: -16px -16px; }
+    .add { background-position: -16px -96px; }
+    .add:hover { background-position: -16px -112px; }
+.available { background:url('../img/css/check.png') no-repeat 0 0; 
+width:24px; height:24px; margin:0 auto;}
+    .yes { background-position: 0 0; }
+    .no { background-position: 0 -24px; }

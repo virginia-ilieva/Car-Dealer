@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Car Dealer</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <script type="text/javascript" src="js/jquery-v1.4.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.js"></script>
+    <script type="text/javascript" src="js/plug-ins/jquery.validationEngine-en.js"></script>
+    <script type="text/javascript" src="js/plug-ins/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="js/plug-ins/timePicker.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            activateValidation();
+            loadCarDetails(); 
+        })
+    </script>
+    <style type="text/css">
+        #manageCars {margin-left:auto; margin-right:auto; width:1020px;}
+        #addBtn {margin:0 30px 15px 0;}
+        #popupLeft {width:420px; float:left;}
+        #popupRight {width:300px; float:left; margin-top:-20px;}
+        #popupImage {width:400px; height:200px; margin-bottom:10px;}
+    </style>
+</head>
+<body>
+    <form id="CarDealer" action="default.htm">
+        <div id="manageCars">
+            <div class="logo">
+                <img src="img/logo.png" alt="" />
+            </div>
+            <div class="slider"></div>
+            <div class="managegrid">
+                <p class="title"><span>Автомобили</span></p>
+                <!-- Cars List -->   
+                <div id="addBtn" class="right">
+                    <a href="#?w=810" rel="car_popup" class="poplight"><input type="button" class="btn add" title="Добави нов автомобил" value="Добави" onclick="$('#itemID').val(0); return showPopup();"/></a>
+                </div>
+                <table class="grid">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Информация</th> 
+                        <th style="cursor:pointer;" title="Сортирай" onclick="sorted = true; loadCarDetails();">Наличност</th>
+                        <th></th>
+                      </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table><!-- Cars List -->    
+                <input id="itemID" type="text" runat="server" class="hidden" clientidmode="Static" value="0" />
+                <input id="btnRefreshCars" type="button" runat="server" class="hidden" onclick="" />
+            </div>
+
+            <!-- Car Popup -->
+            <div id="car_popup" class="popup_block">
+                <div class="title"><span>Информация за автомобила</span></div>
+                <div id="popupLeft">
+                    <img id="popupImage" src="" />
+                    <input id="Picture" type="file" class="validate[required] textbox" clientidmode="Static" onchange="readURL(this);" /><br />
+                    <label for="Make" class="label">Марка:</label>
+                    <input id="Make" type="text" class="validate[required] textbox" clientidmode="Static" /><br />
+                    <label for="Model" class="label" >Модел:</label>
+                    <input id="Model" type="text" class="validate[required] textbox" clientidmode="Static" /><br />
+                    <label for="DOP" class="label" >Дата на производство:</label>
+                    <input id="DOP" type="text" class="validate[required] textbox" clientidmode="Static" readonly /><br />
+                    <label for="Status" class="label" >Наличност:</label>
+                    <select id="Status" class="validate[required,funcCall[validateSelect]] dropdown" clientidmode="Static">
+                        <option value="0">Избери наличност</option>
+                        <option value="1">Да</option>
+                        <option value="2">Не</option>
+                    </select><br />
+                    <label for="RegNumber" class="label" >Регистрационен номер:</label>
+                    <input id="RegNumber" type="text" class="validate[required,custom[BGcarPlate]] textbox" clientidmode="Static" /><br />
+                </div>
+                <div id="popupRight">
+                    <p id='map'></p>
+                </div>   
+                <div class="right">
+                    <input type="submit" id="btnSave" title="Запиши" value="Запиши" class="btn save" />
+                </div>
+            </div><!-- End Car Popup -->
+        </div>
+
+    </form>
+</body>
+</html>
+
+ 
